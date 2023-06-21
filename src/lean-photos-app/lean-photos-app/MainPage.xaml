@@ -10,10 +10,10 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.Resources>
-        
+
         <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
         <x:Double x:Key="RightColumnWidth">200</x:Double>
-        
+
         <DataTemplate x:Name="PhotoDataTemplate" 
                       x:DataType="models:Photo">
             <Grid Width="150" 
@@ -119,7 +119,8 @@
                 <Border Background="#FF0E71BD" 
                         CornerRadius="8,8,0,0"/>
                 <TextBlock Text="{x:Bind ViewModel.AlbumTitleText, Mode=OneWay}"
-                           Margin="8,16" 
+                           Margin="16"
+                           Foreground="White"
                            Style="{ThemeResource TitleTextBlockStyle}" />
                 <Button Content="Show All Photos" 
                         Grid.Column="1"
@@ -137,6 +138,7 @@
                        ItemsSource="{x:Bind ViewModel.VisiblePhotos, Mode=OneWay}" 
                        ItemTemplate="{StaticResource PhotoDataTemplate}"
                        SelectedItem="{x:Bind ViewModel.SelectedItem, Mode=TwoWay}"
+                       SelectionMode="Single"
                        SelectionChanged="GridView_SelectionChanged"
                        BorderBrush="Black"
                        BorderThickness="2">
@@ -163,12 +165,22 @@
                                    TextWrapping="Wrap" 
                                    Margin="0,4,0,16" 
                                    Style="{ThemeResource BodyTextBlockStyle}"/>
-                        <Image Source="{x:Bind ViewModel.SelectedItem.Url, Mode=OneWay}" 
-                               Margin="0,4,0,16"
-                               HorizontalAlignment="Left"
-                               Width="180" 
-                               Height="180" />
-                        <TextBlock Text="Album" 
+                        <Grid Margin="0,4,0,16"
+                              HorizontalAlignment="Left"
+                              Width="180"
+                              Height="180">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Image Source="/Assets/placeholder.png" />
+                            <TextBlock Text="Loading image..." 
+                                       Grid.Row="1"
+                                       VerticalAlignment="Bottom" 
+                                       HorizontalAlignment="Center" />
+                            <Image Grid.RowSpan="2" Source="{x:Bind ViewModel.SelectedItem.Url, Mode=OneWay}" />
+                        </Grid>
+                        <TextBlock Text="Album"
                                    Style="{ThemeResource SubtitleTextBlockStyle}" />
                         <TextBlock Text="{x:Bind ViewModel.SelectedItem.AlbumId, Mode=OneWay}" 
                                    Style="{ThemeResource BodyTextBlockStyle}" 
