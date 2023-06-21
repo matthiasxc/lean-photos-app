@@ -1,5 +1,5 @@
 # lean-photos-app
-A technical showcase for Lean Techniques demonstrating a photo album app created by Matthias Shapiro
+A technical showcase for Lean TECHniques demonstrating a photo album app created by Matthias Shapiro
 
 ## Application Langauge and Framework
 This is a UWP application built in Visual Studio 2022 using C# and XAML and can be run on Windows or XBox. It employs MVVM (Model-View-ViewModel) architecture which allows us a fairly clean seperation of concerns between the user interface and the core application logic.
