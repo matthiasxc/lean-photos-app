@@ -4,6 +4,12 @@ A technical showcase for Lean Techniques demonstrating a photo album app created
 ## Application Langauge and Framework
 This is a UWP application built in Visual Studio 2022 using C# and XAML and can be run on Windows or XBox. It employs MVVM (Model-View-ViewModel) architecture which allows us a fairly clean seperation of concerns between the user interface and the core application logic.
 
+The application can be built by loading it into Visual Studio 2022 in a Windows environment. To make sure that `LeanPhotos.App (Universal Windows)` is set as the startup project, right-click on it and select `Set as Startup Project`.
+
+You should be able to launch the application by clicking the `Local Machine` button in the taskbar.
+
+Unit tests can be launched using the Test Explorer in Visual Studio `(Ctrl+E,T)`.
+
 ## Application Structure
 This app is made of 3 projects
 
