@@ -6,11 +6,11 @@ This is a UWP application built in Visual Studio 2022 using C# and XAML and can 
 
 The application can be built by loading it into Visual Studio 2022 in a Windows environment. To make sure that `LeanPhotos.App (Universal Windows)` is set as the startup project, right-click on it and select `Set as Startup Project`.
 
-![Set Startup Project menu option](blob/main/assets/set-as-startup-project.png)
+![Set Startup Project menu option](/assets/set-as-startup-project.png)
 
 You should be able to launch the application by clicking the `Local Machine` button in the taskbar.
 
-![Launch application on Local Machine Task Bar](blob/main/assets/launch-application.png)
+![Launch application on Local Machine Task Bar](/assets/launch-application.png)
 
 Unit tests can be launched using the Test Explorer in Visual Studio `(Ctrl+E,T)`.
 
