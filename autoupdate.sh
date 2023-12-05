@@ -6,11 +6,14 @@ file="daily-tracker.txt"
 touch "$file"
 
 # Add a new line of text to the file
-echo "Your new line of text" >> "$file"
+echo "tracking daily info" >> "$file"
+
+# pull latest changes
+git pull 
 
 # Commit changes to Git
-git add "$file"
-git commit -m "Add new line to daily tracker"
+git add .
+git commit -m "Daily tracking"
 
 # Push changes to the master branch
-git push origin master
+git push origin main
