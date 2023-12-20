@@ -1,8 +1,17 @@
 #!/bin/sh
 cd C:/Users/matth/source/repos/lean-photos-app
-git add --all
-timestamp() {
-  date +"at %H:%M:%S on %d/%m/%Y"
-}
-git commit -am "Regular auto-commit $(timestamp)"
-git push origin master
+# Define the file name
+file="daily-tracker.txt"
+
+touch "$file"
+
+# Add a new line of text to the file
+echo "tracking daily info" >> "$file"
+
+# pull latest changes
+git pull 
+
+# Commit changes to Git
+git add .
+git commit -m "Daily tracking"
+git push origin main
