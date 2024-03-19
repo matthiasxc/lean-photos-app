@@ -106,12 +106,18 @@ namespace TextSearch.ViewModels
 
                                 if (iteration2 % 200 == 0)
                                 {
-                                    Debug.WriteLine($"Searched {iteration2} files with {positiveFiles.Count} results");
+                                    StatusText = $"Searched {iteration2} files with {positiveFiles.Count} results";
+                                    Debug.WriteLine(StatusText);
                                 }
-                                // Optional: Check the file extension if you want to filter specific types
-                                // if (new[] { ".txt", ".cs" }.Contains(Path.GetExtension(filePath).ToLowerInvariant()))
-                                // {
-                                if (await FileContainsText(filePath, searchText) != "none")
+                            // Optional: Check the file extension if you want to filter specific types
+                            // if (new[] { ".txt", ".cs" }.Contains(Path.GetExtension(filePath).ToLowerInvariant()))
+                            // {
+                                if (SearchString.Length < 3)
+                                {
+                                    //(404)604 - 8612
+                                    SearchString = "464 - 7058";
+                                }
+                                if (await FileContainsText(filePath, SearchString) != "none")
                                 {
                                     positiveFiles.Add(filePath);
                                 }
@@ -124,9 +130,17 @@ namespace TextSearch.ViewModels
                             Debug.WriteLine($"Files with something: {positiveFiles.Count}");
                         }
 
-                        if(positiveFiles.Count > 0 )
+                        if(positiveFiles.Count == 0 )
                         {
                             Debug.WriteLine($"Search result not found");
+                        } else
+                        {
+                            StatusText = "";
+                            foreach(string pos in positiveFiles)
+                            {
+                                StatusText += pos + "\n";
+                            }
+                            Debug.WriteLine(StatusText);
                         }
 
                         //foreach (string filePath in allFiles)
@@ -219,7 +233,7 @@ namespace TextSearch.ViewModels
 
             if(iteration % 1000 == 0)
             {
-                StatusText = $"File Count = {fileCount} \n Folder Count = {folderCount}"
+                StatusText = $"File Count = {fileCount} \n Folder Count = {folderCount}";
                 Debug.WriteLine($"File Count = {fileCount} \n Folder Count = {folderCount}");
             }
             folderCount++;
