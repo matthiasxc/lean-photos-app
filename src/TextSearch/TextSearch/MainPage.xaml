@@ -9,14 +9,62 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
         <StackPanel>
             <Button Content="Get Folder" Margin="8" Click="Folder_Click" Command="{Binding SelectTargetFolderCommand, Mode=OneWay}"/>
-            <TextBlock Text="Search Text:" Margin="8" />
-            <TextBox Text="{Binding SearchString, Mode=TwoWay}" Width="200" HorizontalAlignment="Left" Margin="8"/>
+            <TextBlock Text="Search Text:" Margin="8,4" />
+            <TextBlock Text="Term 1:" Margin="8,4" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="Term 1:" Margin="8,4" />
+                    <TextBox Text="{Binding SearchString, Mode=TwoWay}" Width="200" HorizontalAlignment="Left" Margin="8"/>
+                    <TextBlock Text="Term 2:" Margin="8,4" />
+                    <TextBox Text="{Binding SearchString2, Mode=TwoWay}" Width="200" HorizontalAlignment="Left" Margin="8"/>
+                    <TextBlock Text="Term 3:" Margin="8,4" />
+                    <TextBox Text="{Binding SearchString3, Mode=TwoWay}" Width="200" HorizontalAlignment="Left" Margin="8"/>
+                </StackPanel>
+                <!--<StackPanel Grid.Column="1">
+                    <TextBlock Text="Term 4:" Margin="8,4" />
+                    <TextBox Text="{Binding SearchString4, Mode=TwoWay}" Width="200" HorizontalAlignment="Left" Margin="8"/>
+                    <TextBlock Text="Term 5:" Margin="8,4" />
+                    <TextBox Text="{Binding SearchString5, Mode=TwoWay}" Width="200" HorizontalAlignment="Left" Margin="8"/>
+                    <TextBlock Text="Term 6:" Margin="8,4" />
+                    <TextBox Text="{Binding SearchString6, Mode=TwoWay}" Width="200" HorizontalAlignment="Left" Margin="8"/>
+                </StackPanel>
+                <StackPanel Grid.Column="2">
+                    <TextBlock Text="Term 7:" Margin="8,4" />
+                    <TextBox Text="{Binding SearchString7, Mode=TwoWay}" Width="200" HorizontalAlignment="Left" Margin="8"/>
+                    <TextBlock Text="Term 8:" Margin="8,4" />
+                    <TextBox Text="{Binding SearchString8, Mode=TwoWay}" Width="200" HorizontalAlignment="Left" Margin="8"/>
+                    <TextBlock Text="Term 9:" Margin="8,4" />
+                    <TextBox Text="{Binding SearchString9, Mode=TwoWay}" Width="200" HorizontalAlignment="Left" Margin="8"/>
+                </StackPanel>
+                <StackPanel Grid.Column="3">
+                    <TextBlock Text="Term 10:" Margin="8,4" />
+                    <TextBox Text="{Binding SearchString10, Mode=TwoWay}" Width="200" HorizontalAlignment="Left" Margin="8"/>
+                    <TextBlock Text="Term 11:" Margin="8,4" />
+                    <TextBox Text="{Binding SearchString11, Mode=TwoWay}" Width="200" HorizontalAlignment="Left" Margin="8"/>
+                    <TextBlock Text="Term 12:" Margin="8,4" />
+                    <TextBox Text="{Binding SearchString12, Mode=TwoWay}" Width="200" HorizontalAlignment="Left" Margin="8"/>
+                </StackPanel>-->
+            </Grid>
+            
+
             <Button Content="Perform Search" Margin="8" Click="Search_Click" Command="{Binding StartTextSearch, Mode=OneWay}" IsEnabled="{Binding IsReadyToSearch, Mode=OneWay}"/>
 
-            <TextBlock Text="{Binding StatusText, Mode=OneWay}" />
+            
         </StackPanel>
-
+        <ScrollViewer Grid.Row="1">
+            <TextBlock Text="{Binding StatusText, Mode=OneWay}" Margin="8" />
+        </ScrollViewer>
     </Grid>
 </Page>
