@@ -205,7 +205,6 @@ namespace TextSearch.ViewModels
                                 if (searchResults != "none")
                                 {
                                     positiveFiles.Add(searchResults);
-                                    StatusText = $"Found {SearchString} in {filePath} results";
                                     Debug.WriteLine(StatusText);
                                 }
                                 // }
@@ -292,6 +291,7 @@ namespace TextSearch.ViewModels
 
                     if (searchTerm != "")
                     {
+                        Debug.WriteLine($"Found: {searchTerm} in {filePath} ");
                         return searchTerm + filePath;
                     }
                 }
